@@ -1,0 +1,33 @@
+# Raw data (816MB, 22 subject CSVs) - too large for GitHub, download HARTH separately (see README)
+data/raw/*.csv
+
+# Large derived artifacts (windowed arrays + feature table) - regenerate locally via
+# notebook 02 or `python src/build_processed_data.py`
+data/processed/windows_X.npy
+data/processed/windows_y.npy
+data/processed/windows_subject.npy
+data/processed/features.csv
+
+# NOTE: trained model weights (cnn1d_weights.pt, lstm_weights.pt - both under 200KB) and
+# result files (classical_results.json, deep_results.json, xgboost_model.json,
+# lightgbm_model.txt) are intentionally NOT ignored - they're small and let people inspect
+# results without re-running the full pipeline.
+
+# Keep folder structure in git
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints
